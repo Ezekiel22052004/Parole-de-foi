@@ -120,4 +120,54 @@ footer{padding:40px 0;border-top:1px solid #e6eef7;color:var(--muted)}
   background:linear-gradient(135deg,var(--primary),#6dbbff);
   color:#fff;border-color:#cfe2ff
 }
+/* ======== MOBILE FIX PACK (coller à la fin de style.css) ======== */
+
+/* 1) Typo fluide & pas de scroll horizontal */
+html { font-size: clamp(15px, 2.5vw, 17px); }
+body { overflow-x: hidden; }
+
+/* 2) Navigation responsive */
+@media (max-width: 900px){
+  .nav { padding: .7rem 0; }
+  .navlinks { gap: .8rem; }
+}
+@media (max-width: 760px){
+  .nav { flex-direction: column; align-items: center; gap: .4rem; }
+  .brand img { width: 56px; height: 56px; }             /* logo un peu réduit en mobile pour ne pas casser la ligne */
+  .brand strong { font-size: clamp(1.35rem, 6vw, 2rem); }
+  .navlinks { flex-wrap: wrap; justify-content: center; }
+  .navlinks a { padding: .28rem .5rem; border-radius: 10px; }
+}
+
+/* 3) Hero accueil plus léger en mobile */
+@media (max-width: 560px){
+  #view-home { min-height: 62vh; }
+}
+
+/* 4) Grilles et boutons – mieux sur petits écrans */
+@media (max-width: 900px){
+  .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px){
+  .grid.buttons { grid-template-columns: 1fr 1fr; gap: .7rem; }
+}
+@media (max-width: 420px){
+  .grid.buttons { grid-template-columns: 1fr; }
+}
+
+/* 5) Détail d’une dévotion – éviter le débordement horizontal */
+@media (max-width: 860px){
+  .dev-detail { grid-template-columns: 1fr; }
+  .dev-cover img { height: 220px; object-fit: cover; }
+}
+
+/* 6) Cartes – mieux respirer et éviter les césures moches */
+.card { padding: clamp(.9rem, 2.5vw, 1.1rem); }
+.card, .card * { word-break: break-word; overflow-wrap: anywhere; }
+
+/* 7) Icônes d’action – cibles confortables sur mobile */
+@media (max-width: 560px){
+  .iconbtn { width: 46px; height: 46px; font-size: 1.15rem; }
+}
+
 
