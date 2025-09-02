@@ -169,5 +169,77 @@ body { overflow-x: hidden; }
 @media (max-width: 560px){
   .iconbtn { width: 46px; height: 46px; font-size: 1.15rem; }
 }
+/* ======== MOBILE POLISH V2 (ajouter à la fin de style.css) ======== */
+
+/* 0) Neutralise toute cause de scroll horizontal */
+html, body { overflow-x: hidden; }
+@supports (overflow: clip) {
+  html, body { overflow-x: clip; }
+}
+
+/* 1) Conteneur un peu plus large en mobile pour laisser respirer la nav */
+@media (max-width: 1024px){
+  .container { width: min(1200px, 94vw); }
+}
+
+/* 2) Topbar : meilleure répartition + marge de sécurité iOS (notch) */
+.topbar,
+header,
+footer {
+  padding-left: max(12px, env(safe-area-inset-left));
+  padding-right: max(12px, env(safe-area-inset-right));
+}
+@media (max-width: 640px){
+  .topbar .container{
+    justify-content:flex-start;
+    row-gap:.35rem; column-gap:.8rem;
+    font-size: .95rem;
+  }
+  .topbar .dot{ display:none; } /* retire les points pour gagner de la place */
+}
+
+/* 3) Navigation : autoriser le retour à la ligne et éviter le débordement */
+.nav{ flex-wrap: wrap; gap:.6rem 1rem; }
+.navlinks{ flex-wrap: wrap; justify-content:center; gap:.6rem .8rem; }
+.navlinks a{ padding:.28rem .5rem; border-radius:10px; }
+
+/* 3bis) Ajustements taille logo + titre en mobile */
+@media (max-width: 760px){
+  .brand img{ width:56px; height:56px; }
+  .brand strong{ font-size: clamp(1.35rem, 6vw, 2rem); }
+  .nav{ padding:.6rem 0; }
+}
+@media (max-width: 420px){
+  .brand img{ width:52px; height:52px; }
+}
+
+/* 4) Hero d’accueil : éviter l’effet “trop haut” en petit écran */
+@media (max-width: 560px){
+  #view-home { min-height: 62vh; }
+}
+
+/* 5) Grilles : 1 colonne sur mobile */
+@media (max-width: 900px){
+  .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr; }
+}
+.grid.buttons{ gap:.8rem; }
+@media (max-width: 900px){ .grid.buttons{ grid-template-columns: 1fr 1fr; } }
+@media (max-width: 420px){ .grid.buttons{ grid-template-columns: 1fr; } }
+
+/* 6) Détail d’une dévotion : une seule colonne + image adaptée */
+@media (max-width: 860px){
+  .dev-detail{ grid-template-columns: 1fr; }
+  .dev-cover img{ height: 220px; object-fit: cover; }
+}
+
+/* 7) Cartes : padding fluide et coupure de mots longue */
+.card{ padding: clamp(.9rem, 2.5vw, 1.1rem); }
+.card, .card *{ word-break: break-word; overflow-wrap: anywhere; }
+
+/* 8) Boutons d’action : cibles confortables sur mobile */
+@media (max-width: 560px){
+  .iconbtn{ width:46px; height:46px; font-size:1.15rem; }
+}
+
 
 
