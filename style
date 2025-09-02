@@ -1,0 +1,122 @@
+/* ====== Thème (bleu clair, pro) ====== */
+:root{
+  --bg:#eaf4ff;         /* bleu très clair */
+  --bg-soft:#f7fbff;    /* variante très claire */
+  --primary:#2aa8ff;    /* bleu clair */
+  --accent:#7cc6ff;     /* bleu d'accent */
+  --ink:#0f1226;        /* texte */
+  --muted:#5b6b84;      /* texte secondaire */
+  --card:#ffffff;       /* cartes blanches */
+  --radius:18px;
+  --shadow: 0 14px 34px rgba(20,118,255,.12);
+}
+
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  background:
+    radial-gradient(1100px 700px at 80% -10%, rgba(42,168,255,.08), transparent 60%),
+    radial-gradient(900px 600px at -10% 20%, rgba(20,118,255,.06), transparent 60%),
+    var(--bg);
+  color:var(--ink);
+  font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  font-size:16.5px;
+}
+a{color:#0b2f6e;text-decoration:none}
+a:hover{ text-decoration:underline; text-underline-offset:3px }
+img{max-width:100%;display:block}
+.container{width:min(1100px,92%);margin-inline:auto}
+
+/* ====== Boutons ====== */
+.btn{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.85rem 1.12rem;border-radius:999px;font-weight:600;
+  border:1px solid #d9e7ff;background:#fff;color:#0b2f6e;
+  box-shadow:var(--shadow);transition:.2s ease
+}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{
+  background:linear-gradient(135deg,var(--primary),#6dbbff);
+  color:#fff;border-color:#cfe2ff;
+  box-shadow:0 10px 26px rgba(42,168,255,.28)
+}
+
+/* ====== Header / Nav ====== */
+header{
+  position:sticky;top:0;z-index:30;background:#fff;
+  border-bottom:1px solid #e6eef7;backdrop-filter:saturate(1.1)
+}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0}
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand img{width:48px;height:48px;object-fit:contain}
+.brand strong{font-weight:700; letter-spacing:.3px; font-size:clamp(1.4rem, 3.2vw, 2.2rem)}
+.navlinks{display:flex;gap:1.2rem;align-items:center}
+.navlinks a{font-weight:600;color:#1a2a44}
+
+/* ====== Sections ====== */
+.section{padding:64px 0}
+.section h2{font-size:clamp(1.6rem,3.2vw,2.2rem);margin:0 0 1rem}
+.card{background:var(--card); border:1px solid #e6eef7; border-radius:var(--radius); box-shadow:var(--shadow)}
+.grid{display:grid;gap:1rem}
+.grid.cols-2{grid-template-columns:repeat(2,1fr)}
+.grid.cols-3{grid-template-columns:repeat(3,1fr)}
+@media (max-width: 900px){
+  .grid.cols-2,.grid.cols-3{grid-template-columns:1fr}
+}
+.muted{color:var(--muted)}
+
+/* ====== HERO Accueil ====== */
+/* Ligne à modifier si tu changes la bannière : */
+:root{ --hero-url: url('images/accueil.jpg'); }
+
+#view-home{
+  position:relative; background-image:var(--hero-url);
+  background-size:cover; background-position:center;
+  min-height:70vh; display:grid; align-items:center;
+}
+#view-home::before{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(10,24,50,.30), rgba(10,24,50,.10));
+}
+#view-home > .container{ position:relative; z-index:1; }
+#view-home h1{
+  font-weight:800; color:#0b2f6e;
+  font-size: clamp(2.4rem, 5.8vw, 4rem);
+  margin:.6rem 0 0;
+}
+.pill{
+  display:inline-flex;align-items:center;gap:.5rem;
+  border:1px solid #d9e7ff;border-radius:999px;
+  padding:.35rem .7rem;background:#ffffff
+}
+
+/* ====== Footer ====== */
+footer{padding:40px 0;border-top:1px solid #e6eef7;color:var(--muted)}
+
+/* ====== Router visibility ====== */
+[data-view]{display:none}
+[data-view].active{display:block}
+/* === Enseignements : actions Like / Commenter === */
+.actions{display:flex;gap:.6rem;align-items:center;margin-top:.8rem}
+.iconbtn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:42px;height:42px;border-radius:999px;
+  border:1px solid #d9e7ff;background:#fff;color:#0b2f6e;
+  box-shadow:var(--shadow);cursor:pointer;font-size:1.05rem
+}
+.iconbtn[aria-pressed="true"]{
+  background:linear-gradient(135deg,var(--primary),#6dbbff);
+  color:#fff;border-color:#cfe2ff
+}
+/* Actions sous une dévotion (Like / Commenter) */
+.actions{display:flex;gap:.6rem;align-items:center;margin-top:.8rem}
+.iconbtn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:42px;height:42px;border-radius:999px;
+  border:1px solid #d9e7ff;background:#fff;color:#0b2f6e;
+  box-shadow:var(--shadow);cursor:pointer;font-size:1.05rem
+}
+.iconbtn[aria-pressed="true"]{
+  background:linear-gradient(135deg,var(--primary),#6dbbff);
+  color:#fff;border-color:#cfe2ff
+}
