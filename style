@@ -67,7 +67,7 @@ header{
 
 /* ====== HERO Accueil ====== */
 /* Ligne à modifier si tu changes la bannière : */
-:root{ --hero-url: url('images/accueil.jpg'); }
+:root{ --hero-url: url('accueil.jpg'); }
 
 #view-home{
   position:relative; background-image:var(--hero-url);
@@ -120,3 +120,4 @@ footer{padding:40px 0;border-top:1px solid #e6eef7;color:var(--muted)}
   background:linear-gradient(135deg,var(--primary),#6dbbff);
   color:#fff;border-color:#cfe2ff
 }
+
